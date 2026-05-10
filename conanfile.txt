@@ -1,0 +1,14 @@
+[requires]
+drogon/1.9.8
+glaze/2.3.0
+spdlog/1.13.0
+libsodium/1.0.19
+tomlplusplus/3.4.0
+tracy/0.10
+abseil/20240116.1
+xz_utils/5.4.5
+uwebsockets/20.48.0
+
+[generators]
+CMakeDeps
+CMakeToolchain

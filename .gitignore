@@ -1,0 +1,22 @@
+# Build artifacts
+build/
+bin/
+obj/
+
+# Conan dependencies (These are OS-specific, don't sync them!)
+conan_deps/
+conan_install_data.json
+graph_info.json
+
+# LSP / Editor junk
+.cache/
+compile_commands.json
+.clangd/
+.vscode/
+
+# Local presets
+CMakeUserPresets.json
+
+# OS junk
+.DS_Store
+Thumbs.db
