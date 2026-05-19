@@ -16,7 +16,7 @@ An ultra-fast, high-throughput, Just-In-Time (JIT) Image Transformation Proxy bu
 ## 🛠️ Prerequisites & System Layout
 
 Your workspace currently maps out as follows:
-
+```
 ultra_backend/
 ├── main.cpp                 # Main HydraCDN engine source
 ├── CMakeLists.txt           # Build automation configuration
@@ -25,12 +25,12 @@ ultra_backend/
 ├── scripts/
 │   └── exec.sh              # Fast build and execution automation script
 └── README.md                # Project documentation
-
+```
 ### Build Dependencies
 Ensure your Arch Linux development machine has the system requirements satisfied:
-
+```
 sudo pacman -S base-devel cmake conan libvips tbb spdlog
-
+```
 ---
 
 ## 🔨 Compiling & Running
@@ -40,13 +40,15 @@ The compilation sequence forces optimization flags (`-O3`), auto-vectorization, 
 To build the executable manually or understand the shell runner (`scripts/exec.sh`), execute the script from the root workspace:
 
 # Provide permissions if required
+```
 chmod +x scripts/exec.sh
-
+```
 # Run the automated compilation pipeline
+```
 ./scripts/exec.sh
-
+```
 ### Under the Hood of `scripts/exec.sh`:
-
+```
 set -e # Terminate script immediately if any compilation line throws an error
 
 cd build
@@ -59,7 +61,7 @@ cmake --build . --parallel $(nproc)
 Once successfully compiled, kickstart your engine instance:
 
 ./build/HydraCDN
-
+```
 ---
 
 ## 📡 API Production Interface Usage
@@ -68,7 +70,7 @@ HydraCDN exposes two direct high-throughput REST API endpoints. All requests exp
 
 ### 1. Crop Region Extraction (`/extract`)
 Slices out a custom rectangular sub-region area from an uploaded raw target image.
-
+```
 curl -X POST http://127.0.0.1:8080/extract \
   -F "image=@/path/to/local_photo.png" \
   -F "id=profile_banner_user_9921" \
@@ -77,10 +79,10 @@ curl -X POST http://127.0.0.1:8080/extract \
   -F "width=800" \
   -F "height=400" \
   --output result_crop.webp
-
+```
 ### 2. Crop, Fit, and Structural Scaling (`/extract_and_fit`)
 Slices a specified crop bounding box area and structurally downscales/upscales the resulting region dynamically to custom output layout targets.
-
+```
 curl -X POST http://127.0.0.1:8080/extract_and_fit \
   -F "image=@/path/to/local_photo.png" \
   -F "id=profile_thumb_user_9921" \
@@ -91,7 +93,7 @@ curl -X POST http://127.0.0.1:8080/extract_and_fit \
   -F "scale_width=200" \
   -F "scale_height=100" \
   --output result_thumbnail.webp
-
+```
 ---
 
 ## 📊 Core Routing Lifecycle Loop
