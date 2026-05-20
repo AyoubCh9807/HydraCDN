@@ -33,6 +33,24 @@ Ensure your Arch Linux development machine has the system requirements satisfied
 ```
 sudo pacman -S base-devel cmake conan libvips tbb spdlog
 ```
+#### Installing Drogon Framework
+Because Drogon is not bundled in the official Arch repositories, you must install it via the AUR or compile it from source before running the build pipeline:
+
+**Option A: Install via AUR (Recommended)**
+```
+yay -S drogon
+```
+**Option B: Build and Install from Source**
+```
+git clone https://github.com/drogonframework/drogon
+cd drogon
+git submodule update --init
+mkdir build
+cd build
+cmake .. -DCMAKE_BUILD_TYPE=Release
+make -j$(nproc)
+sudo make install
+```
 ---
 
 ## 🔨 Compiling & Running
