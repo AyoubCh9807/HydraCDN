@@ -1,6 +1,8 @@
+![HydraCDN Banner](cover.png)
+
 # HydraCDN (UltraBackend Prod Stack)
 
-An ultra-fast, high-throughput, Just-In-Time (JIT) Image Transformation Proxy built in modern C++. It leverages asynchronous non-blocking network I/O, fine-grained multi-threaded bucket caching, and bare-metal SIMD image processing to crop and scale images entirely in-memory.
+An ultra-fast, high-throughput, Just-In-Time (JIT) Image Transformation Service built in modern C++. It leverages asynchronous non-blocking network I/O, fine-grained multi-threaded bucket caching, and bare-metal SIMD image processing to crop and scale images entirely in-memory.
 
 ---
 
